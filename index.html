@@ -1,66 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First GitHub Page!</title>
-    <style>
-        /* Basic styling for our page */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #e0f2f7; /* Light blue background */
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Make sure it takes full viewport height */
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 600px;
-            margin: 20px;
-        }
-        h1 {
-            color: #007bff; /* Bright blue heading */
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.1em;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-        .btn-github {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #24292e; /* GitHub dark grey */
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        .btn-github:hover {
-            background-color: #0366d6; /* GitHub blue on hover */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Happy 19th Birthday!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Confetti effect */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .confetti {
+      pointer-events: none;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      left: 0; top: 0;
+      z-index: 2;
+      overflow: hidden;
+    }
+    .confetti span {
+      position: absolute;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      opacity: 0.75;
+      animation: fall 5s linear infinite;
+    }
+    .confetti span:nth-child(1) { background: #FF69B4; left: 10%; animation-delay: 0s;}
+    .confetti span:nth-child(2) { background: #FFD700; left: 25%; animation-delay: 1s;}
+    .confetti span:nth-child(3) { background: #00BFFF; left: 35%; animation-delay: 2s;}
+    .confetti span:nth-child(4) { background: #32CD32; left: 50%; animation-delay: 1.5s;}
+    .confetti span:nth-child(5) { background: #FFB6C1; left: 60%; animation-delay: 0.7s;}
+    .confetti span:nth-child(6) { background: #FFA500; left: 75%; animation-delay: 2.4s;}
+    .confetti span:nth-child(7) { background: #FF69B4; left: 80%; animation-delay: 1.2s;}
+    .confetti span:nth-child(8) { background: #FFD700; left: 90%; animation-delay: 0.3s;}
+    @keyframes fall {
+      0% { top: -15px; transform: rotate(0deg);}
+      100% { top: 100vh; transform: rotate(360deg);}
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem 1rem;
+      background: linear-gradient(135deg, #fcb69f 0%, #ffecd2 100%);
+      color: #9b2335;
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin: 0 0 0.5em 0;
+      letter-spacing: 2px;
+      animation: popIn 1.2s cubic-bezier(.6,-0.28,.74,.05) 1;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0;}
+      100% { transform: scale(1); opacity: 1;}
+    }
+    header h2 {
+      font-size: 1.4rem;
+      margin: 0 0 1em 0;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #6d2542;
+    }
+    .balloons {
+      margin: 2em auto 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1em;
+    }
+    .balloon {
+      width: 54px; height: 70px;
+      background: radial-gradient(circle at 60% 30%, #ff8fab 70%, #fff0 100%);
+      border-radius: 60% 60% 60% 60% / 80% 80% 100% 100%;
+      position: relative;
+      box-shadow: 0 8px 16px #ffc0cb70;
+      animation: float 3s ease-in-out infinite;
+    }
+    .balloon:nth-child(2) { background: radial-gradient(circle at 60% 30%, #ffdd59 70%, #fff0 100%); animation-delay: 1s;}
+    .balloon:nth-child(3) { background: radial-gradient(circle at 60% 30%, #70a1ff 70%, #fff0 100%); animation-delay: 2s;}
+    .balloon:nth-child(4) { background: radial-gradient(circle at 60% 30%, #2ed573 70%, #fff0 100%); animation-delay: 1.5s;}
+    .balloon:after {
+      content: '';
+      position: absolute;
+      left: 50%; bottom: -16px;
+      width: 2px; height: 18px;
+      background: #aaa;
+      transform: translateX(-50%);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-25px);}
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2em auto;
+      background: #fff8f0e8;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px #b76e7965;
+      padding: 2rem;
+      z-index: 1;
+      position: relative;
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2em;
+      margin-top: 1em;
+    }
+    .gallery .photo {
+      background: #f7d9d9;
+      border-radius: 15px;
+      padding: 0.7em;
+      box-shadow: 0 4px 12px #e68a8a25;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .gallery img {
+      width: 100%; max-width: 150px; aspect-ratio: 1/1; object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 0.4em;
+      background: #fff3;
+    }
+    .gallery .caption {
+      font-size: 0.92em;
+      color: #9b2335;
+      text-align: center;
+    }
+
+    .video-section {
+      text-align: center;
+    }
+    .video-placeholder {
+      display: inline-block;
+      width: 320px; height: 180px;
+      background: #f7d9d9;
+      border-radius: 14px;
+      margin: 1em 0;
+      position: relative;
+      box-shadow: 0 2px 8px #c28b8b50;
+    }
+    .video-placeholder::before {
+      font-size: 3em;
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -70%);
+      color: #b76e79;
+    }
+    .video-placeholder::after {
+      position: absolute;
+      left: 50%; top: 56%;
+      transform: translate(-50%, 0);
+      color: #9b2335;
+      font-size: 1.1em;
+    }
+
+    .guestbook {
+      margin: 1.5em 0;
+      background: #fff4e6;
+      border-radius: 12px;
+      padding: 1em 1.5em;
+      box-shadow: 0 2px 8px #b76e7935;
+      text-align: center;
+    }
+    .guestbook h3 {
+      margin: 0 0 0.7em 0;
+      color: #b76e79;
+      font-weight: 600;
+    }
+    .guestbook .wish-placeholder {
+      color: #9b2335;
+      font-size: 1.05em;
+      margin: 0.5em 0;
+      font-style: italic;
+    }
+    .guestbook form {
+      margin-top: 1em;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .guestbook input, .guestbook textarea {
+      border: 1px solid #fcb69f;
+      border-radius: 7px;
+      padding: 0.5em 0.9em;
+      margin: 0.4em 0;
+      font-size: 1em;
+      width: 90%;
+      max-width: 330px;
+      background: #fff;
+      resize: vertical;
+    }
+    .guestbook button {
+      background: linear-gradient(90deg, #ffb6c1, #fcb69f);
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 0.5em 1.2em;
+      font-size: 1em;
+      margin-top: 0.6em;
+      cursor: not-allowed; /* Disabled since no JS */
+      opacity: 0.7;
+    }
+
+    .audio-section {
+      margin: 2em 0 0 0;
+      text-align: center;
+    }
+    .audio-placeholder {
+      display: inline-block;
+      width: 180px; height: 50px;
+      background: #f7d9d9;
+      border-radius: 10px;
+      position: relative;
+      margin-top: 1em;
+      box-shadow: 0 2px 8px #c28b8b50;
+      line-height: 50px;
+      font-size: 1.1em;
+      color: #b76e79;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      main { padding: 1rem;}
+      .gallery { grid-template-columns: 1fr 1fr;}
+      .video-placeholder { width: 98vw; max-width: 340px;}
+    }
+    @media (max-width: 500px) {
+      header h1 { font-size: 2rem; }
+      main { padding: 0.5rem;}
+      .gallery { grid-template-columns: 1fr;}
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎉 My First Website on GitHub Pages! 🎉</h1>
-        <p>Hello world! This site is proudly hosted directly from my GitHub repository.</p>
-        <p>This is just the beginning. I'm excited to learn more and build awesome things here!</p>
-        <a href="https://github.com/joehub-lab" target="_blank" class="btn-github">
-            Visit My GitHub Profile
-        </a>
-        <p style="font-size: 0.9em; margin-top: 30px; color: #777;">
-            Remember to replace 'YOUR_USERNAME' in the link with your actual GitHub username!
-        </p>
+  <div class="confetti">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <header>
+    <h1>🎉 Happy 19th Birthday! 🎂</h1>
+    <h2>To the most amazing friend, wishing you a day filled with joy, love, and surprises!</h2>
+    <div class="balloons">
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
     </div>
+  </header>
+  <main>
+    <section class="gallery-section">
+      <h2>📸 Our Memories Together</h2>
+      <div class="gallery">
+        <div class="photo">
+          <img src="9.jpg" alt="Photo 1 placeholder">
+          <div class="caption">First Adventure!</div>
+        </div>
+        <div class="photo">
+          <img src="10.jpg" alt="Photo 1 placeholder">
+          <div class="caption">First Adventure!</div>
+        </div>
+        <div class="photo">
+          <img src="11.jpg" alt="Photo 1 placeholder">
+          <div class="caption">First Adventure!</div>
+        </div>
+        <div class="photo">
+          <img src="13.jpg" alt="Photo 1 placeholder">
+          <div class="caption">First Adventure!</div>
+        </div>
+        <div class="photo">
+          <img src="14.jpg" alt="Photo 1 placeholder">
+          <div class="caption">First Adventure!</div>
+        </div>
+        <div class="photo">
+          <img src="8.jpg" alt="Photo 2 placeholder">
+          <div class="caption">Laughing all day long</div>
+        </div>
+        <div class="photo">
+          <img src="5.jpg" alt="Photo 3 placeholder">
+          <div class="caption">Your 18th Birthday</div>
+        </div>
+        <div class="photo">
+          <img src="6.jpg" alt="Photo 3 placeholder">
+          <div class="caption">Your 18th Birthday</div>
+        </div>
+        <div class="photo">
+          <img src="1.jpg" alt="Photo 3 placeholder">
+          <div class="caption">Your 18th Birthday</div>
+        </div>
+        <div class="photo">
+          <img src="2.jpg" alt="Photo 4 placeholder">
+          <div class="caption">More to come!</div>
+        </div>
+        <div class="photo">
+          <img src="3.jpg" alt="Photo 4 placeholder">
+          <div class="caption">More to come!</div>
+        </div>
+        <div class="photo">
+          <img src="4.jpg" alt="Photo 4 placeholder">
+          <div class="caption">More to come!</div>
+        </div>
+        <div class="photo">
+          <img src="7.jpg" alt="Photo 4 placeholder">
+          <div class="caption">More to come!</div>
+        </div>
+        <div class="photo">
+          <img src="15.jpg" alt="Photo 4 placeholder">
+          <div class="caption">More to come!</div>
+        </div>
+        <div class="photo">
+          <img src="16.jpg" alt="Photo 4 placeholder">
+          <div class="caption">More to come!</div>
+        </div>
+      </div>
+    </section>
+    <section class="video-section">
+      <h2>🎥 Special Video Message</h2>
+      <div class="video-placeholder">
+        <video width="100" controls>
+      <source src="sunny.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-placeholder">
+        <video width="100" controls>
+      <source src="Snapchat-628366143.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-placeholder">
+        <video width="100" controls>
+      <source src="Snapchat-637667007.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-placeholder">
+        <video width="100" controls>
+      <source src="Snapchat-1857130020.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-placeholder">
+        <video width="100" controls>
+      <source src="Snapchat-306057546.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-placeholder">
+        <video width="100" controls>
+      <source src="Snapchat-913262494.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-placeholder">
+        <video width="100" controls>
+      <source src="VID-20240708-WA0118.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p style="margin-top:0.7em; color: #b76e79;">
+      </p>
+    </section>
+    <section class="audio-section">
+        <h2>🎶 Happy Birthday Song</h2>
+        <div class="audio-placeholder">
+          (Song placeholder)
+        </div>
+        <p style="margin-top:0.4em; font-size: 0.95em; color: #b76e79;">
+          <audio controls>
+        <source src="happy-birthday-357371.mp3" type="audio/mp3">
+          </audio>
+        </p>
+      </section>
+  </main>
+  <footer style="text-align:center; color:#b76e79; margin:1.5em 0 0 0; font-size:0.98em;">
+    Made with ❤️ for your special day!
+  </footer>
 </body>
 </html>
